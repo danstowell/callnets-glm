@@ -13,7 +13,7 @@ end
 printf('testscript_GLM_zf4f(%s, %s, %s, %i, %i, %s)\n', dataname, variantname, mat2str(indexmapper), startsecs, endsecs, func2str(nlfun));
 
 runlabel = sprintf('%s%s%s', dataname, variantname, func2str(nlfun)(1:3));
-csvpath = sprintf('~/git/stored_docs/python/zftranscribe/output/annotreconciledproofed/zcompiled_%s.csv', dataname);
+csvpath = sprintf('../data/zf4f/zcompiled_%s.csv', dataname);
 
 disp(sprintf('Fitting with nonlin %s on %s', func2str(nlfun), csvpath));
 
