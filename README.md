@@ -19,7 +19,11 @@ means it's the version we used, not necessarily the exact requirement.
       * matplotlib (1.3.1)
       * subprocess32
 
+* pdflatex, and the "tikz" latex package (to draw social network plots)
+
 Tested on Ubuntu Linux 14.04.
+
+It should run on Linux and Mac fine. Untested on Windows.
 
 
 How to Run the Code

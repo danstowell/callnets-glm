@@ -1,5 +1,6 @@
 *~
 *.png
+*.pyc
 octave-workspace
 code_GLM/tools_mexcode/*.mex
 code_GLM/tools_mexcode/*.o

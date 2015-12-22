@@ -20,8 +20,8 @@ plotdir = 'pdf'
 
 # NB the order here is important: sessiongroups_within is day 0 day 1 just as is sessions_between. this is used when re-permuting the data
 sessiongroups_within = [
-['session2a1', 'session2a2', 'session2b1', 'session2b2'],
-['session3a1', 'session3a2', 'session3b1', 'session3b2'],
+['session2fulla', 'session2fullb', 'session2fullc', 'session2fulld'],
+['session3fulla', 'session3fullb', 'session3fullc', 'session3fulld'],
 ]
 
 sessions_between = ['session2full', 'session3full']

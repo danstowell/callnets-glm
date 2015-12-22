@@ -781,14 +781,13 @@ if __name__ == '__main__':
 	if True:
 		print("Running: timeline plots for empirical data")
 		for srclbl, k in [
-			('session2a',       4),
-			('session2b',       4),
+			('session2full',    4),
 			]:
 			with open('%s/zf4f/zcompiled_%s.csv' % (rawdatasourcedir, srclbl), 'rb') as infp:
 				rdr = csv.reader(infp)
-				tstamps_resim = [(float(row[0]), float(row[1]), int(row[2])) for row in rdr]
+				tstamps = [(float(row[0]), float(row[1]), int(row[2])) for row in rdr]
 
-			simple_timeline_plot(tstamps_resim, k=k, outpath='pdf/plot_timeline_%s.pdf' % srclbl, plttitle="Calling timeline (excerpt)", indlabels=map(str, range(1,1+k)))
+			simple_timeline_plot(tstamps, k=k, outpath='pdf/plot_timeline_%s.pdf' % srclbl, plttitle="Calling timeline (excerpt)", indlabels=map(str, range(1,1+k)))
 
 	if True:
 		print("Running: timeline plots for resimulated data")
@@ -798,6 +797,7 @@ if __name__ == '__main__':
 			]:
 			with open('%s/zf4f_glm_stats_%s.csv' % (csvstatssourcedir, srclbl), 'rb') as infp:
 				rdr = csv.reader(infp)
+				rdr.next() # skip header
 				tstamps_resim = [(float(row[0]), float(row[1]), int(row[2])) for row in rdr]
 
 			simple_timeline_plot(tstamps_resim, k=k, outpath='pdf/plot_timeline_%s.pdf' % srclbl, plttitle="Resimulated timeline (excerpt)", indlabels=map(str, range(1,1+k)))
@@ -862,10 +862,8 @@ if __name__ == '__main__':
 						('session3full', 'sof', None, None, None, None),
 					], None, (1,2)),
 					('_resim', 4, [
-						('resim/zf4f_glm_stats_session2fullsof_resim', 'sof', None, None, None, None),
-						('resim/zf4f_glm_stats_session3fullsof_resim', 'sof', None, None, None, None),
-						('resim/zf4f_glm_stats_session2fullsof_resimasolo', 'sof', None, None, None, None),
-						('resim/zf4f_glm_stats_session3fullsof_resimasolo', 'sof', None, None, None, None),
+						('session2full_resim', 'sof', None, None, None, None),
+						('session3full_resim', 'sof', None, None, None, None),
 					], None, (1,2)),
 					] + [
 					('_gill_ind', 8, [

@@ -244,7 +244,7 @@ if csvoutpath
 	fclose(csvfp_bb);
 
 	if resimuldur > 0
-		disp("*** NOTE: resimulation from fitted model. not validated yet.");
+		disp("resimulating from fitted model.");
 
 		swid = 1;  % Stimulus width  (pixels).  Must match # pixels in stim filter
 		Stim = zeros(resimuldur * RefreshRate,swid);
@@ -308,7 +308,7 @@ if csvoutpath
 		% create a brand new gg object
 		ggsim_just_solo = makeSimStruct_GLM(nkt,DTsim);
 		% set gg parameters: nlfun, dc, ih
-		whichn = 1
+		whichn = 1;
 		ggsim_just_solo.nlfun = nlfun;
 		ggsim_just_solo.dc = gg{whichn}.dc;
 		ggsim_just_solo.ih = gg{whichn}.ihbas * gg{whichn}.ih;
