@@ -1,0 +1,1 @@
+this folder is where code_GLM will put its output when it is being invoked by Python. useful mainly for debugging.
