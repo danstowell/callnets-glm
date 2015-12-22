@@ -39,7 +39,7 @@ struct('dataname', 'session3full', 'variantname', '', 'indexmapper', [1,2,3,4], 
 };
 
 
-nlfuns = {@softplus}; %, @expfun};
+nlfuns = {@softplus, @expfun};
 for whichnlf = 1:length(nlfuns)
 	nlfun = nlfuns{whichnlf};
 	nlname = func2str(nlfun)(1:3);
