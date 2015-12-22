@@ -1,0 +1,10 @@
+*~
+*.png
+octave-workspace
+code_GLM/tools_mexcode/*.mex
+code_GLM/tools_mexcode/*.o
+
+data*.csv
+zf4f*.csv
+plot*.pdf
+
