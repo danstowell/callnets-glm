@@ -1,0 +1,4 @@
+raw input data files will go in this folder.
+
+standard format is CSV containing rows of (start, duration, birdid) where the first two are in seconds and the third is an integer [0,K) where K is num individuals.
+
