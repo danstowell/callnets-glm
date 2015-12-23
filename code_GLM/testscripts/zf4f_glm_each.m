@@ -54,7 +54,14 @@ for whichnlf = 1:length(nlfuns)
 			resimuldur = 0;
 		end
 		runname = sprintf('%s%s', d.dataname, d.variantname);
-		[numcalls.(runname), resultspos.(runname), resultsval.(runname), negloglis.(runname), dcs.(runname)] = testscript_GLM_zf4f(d.dataname, d.variantname, d.indexmapper, d.startsecs, d.endsecs, nlfun, resimuldur);
+		runlabel = sprintf('%s%s%s', d.dataname, d.variantname, func2str(nlfun)(1:3));
+		csvpath = sprintf('../data/zf4f/zcompiled_%s.csv', d.dataname);
+
+		disp(sprintf('Fitting with nonlin %s on %s', func2str(nlfun), csvpath));
+
+		k = length(d.indexmapper);
+		regln = -1; % NOTE default regularisation strength here
+		[numcalls.(runname), resultspos.(runname), resultsval.(runname), negloglis.(runname), dcs.(runname)] = dofit_fromcsv_GLM_zf4f(csvpath, runlabel, k, d.indexmapper, d.startsecs, d.endsecs, regln, 'outplot', 'outcsv', d.resimuldur, nlfun);
 	end
 
 
