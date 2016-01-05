@@ -8,4 +8,6 @@ code_GLM/tools_mexcode/*.o
 data*.csv
 zf4f*.csv
 plot*.pdf
+callnets/pdf/netplot*
+callnets/working/indata.csv
 
