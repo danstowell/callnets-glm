@@ -33,6 +33,7 @@ for destination, url in datafiles.items():
 	dirname = os.path.dirname(destination)
 	mkdir_p(dirname)
 	# download
+	print("Downloading: '%s'" % destination)
 	u = urllib2.urlopen(url)
 	block_sz = 8192
 	with open(destination, 'wb') as f:
