@@ -6,14 +6,12 @@
 
 import os, errno, urllib2
 
-
-# CONFIG: files to download, in the format destination: url
+# CONFIG: files to download, in the format "destination": "url"
 datafiles = {
 # zf4f
-"data/zf4f/zcompiled_session2full.csv": "https://ndownloader.figshare.com/files/3569906?private_link=28c6f27f622d26f2e114",
-"data/zf4f/zcompiled_session3full.csv": "https://ndownloader.figshare.com/files/3569903?private_link=28c6f27f622d26f2e114",
+"data/zf4f/zcompiled_session2full.csv": "https://ndownloader.figshare.com/files/3569906",
+"data/zf4f/zcompiled_session3full.csv": "https://ndownloader.figshare.com/files/3569903",
 }
-
 
 ####################################################
 

@@ -29,7 +29,11 @@ It should run on Linux and Mac fine. Untested on Windows.
 How to Run the Code
 ===================
 
-1. Download the zf4f data files:
+1. Download the data files: you can do this by running `python download_data.py`.
+
+      If you have any problems downloading, these URLs give direct access:
+
+      zf4f: https://figshare.com/articles/Zebra_finch_group_calling_zf4f/1613791
 
              TODO **********************************************************
 
