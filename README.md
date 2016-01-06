@@ -29,7 +29,9 @@ It should run on Linux and Mac fine. Untested on Windows.
 How to Run the Code
 ===================
 
-1. Download the data files: you can do this by running `python download_data.py`.
+1. Download the data files: you can do this by running the following command:
+
+         python download_data.py
 
       If you have any problems downloading, these URLs give direct access:
 
@@ -40,15 +42,16 @@ How to Run the Code
 2. Prepare the mex code (only needs doing once).
 
          cd code_GLM/tools_mexcode
-         octave
-         initialize_mexcode
+         octave --eval "initialize_mexcode"
+         cd ../..
 
-3. Invoke the main Octave script, which will run the GLM analysis multiple times on subsets of the zf4f data.
+3. Invoke the main Octave script, which will run the GLM analysis multiple times on subsets of the zf4f data. This will take a while (maybe half an hour?).
 
          cd code_GLM
          source runme.octave
+         cd ..
 
-4. Invoke the main Python script, which will run GLM and cross-correlation analysis on real and simulated data, and make various plots.
+4. Invoke the main Python script, which will run GLM and cross-correlation analysis on real and simulated data, and make various plots. This will take a while (maybe half an hour?).
 
          cd callnets
          python callnets.py
@@ -58,6 +61,11 @@ How to Run the Code
          python nonlins.py  # just plots what the nonlinearities look like
          python oddsratios.py  # calculates odds-ratios between softplus and exp models
          python analyseadj.py  # analyses the predictability of one segment from the previous
+
+How to Adapt the Code
+=====================
+
+To run the code on your own data, have a look at the Octave/Matlab code in `code_GLM/testscripts/zf4f_glm_each.m`, which simply iterates through a set of datafiles calling `dofit_fromcsv_GLM_zf4f()` for each one. You can simply call `dofit_fromcsv_GLM_zf4f()` yourself, have a look at its parameters. If you specify a `csvoutdir` it outputs data files which are useful for inspecting the results (as is done by `callnets.py`).
 
 
 Copyright and Licence
