@@ -866,24 +866,24 @@ if __name__ == '__main__':
 						('session3full_resim', 'sof', None, None, None, None),
 					], None, (1,2)),
 					] + [
-					('_gill_ind', 8, [
-						('gill/gill_rawfile_%iindall' % whichgillday, 'sof', gillpairinglist, None, None, None)
-					for whichgillday in [1, 4, 5, 6]] # + [
-						# this one should summarise them all onto one plot
-						#(['gill/gill_rawfile_%iindall' % whichgillday for whichgillday in [1, 2, 3, 4, 5, 6, 7]], 'sof', gillpairinglist, None, None, None)]
-					, gill_femalenesses[1], (4,1))
-					] + [
-					('_gill_%itype' % whichgillday, 40, [
-						('gill/gill_rawfile_%itypeall' % whichgillday, 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
-						for asubsetlbl, subsetids in gilltype_subsets[5]
-					]
-					, gill_femalenesses[5], (5,5)) for whichgillday in [1, 2, 3, 4, 5, 6, 7]
-					] + [
-					('_gill_aggtype', 40, [
-						(['gill/gill_rawfile_%itypeall' % whichgillday for whichgillday in [1, 2, 3, 4, 5, 6, 7]], 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
-						for asubsetlbl, subsetids in gilltype_subsets[5]
-					]
-					, gill_femalenesses[5], (5,5))
+#					('_gill_ind', 8, [
+#						('gill/gill_rawfile_%iindall' % whichgillday, 'sof', gillpairinglist, None, None, None)
+#					for whichgillday in [1, 4, 5, 6]] # + [
+#						# this one should summarise them all onto one plot
+#						#(['gill/gill_rawfile_%iindall' % whichgillday for whichgillday in [1, 2, 3, 4, 5, 6, 7]], 'sof', gillpairinglist, None, None, None)]
+#					, gill_femalenesses[1], (4,1))
+#					] + [
+#					('_gill_%itype' % whichgillday, 40, [
+#						('gill/gill_rawfile_%itypeall' % whichgillday, 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
+#						for asubsetlbl, subsetids in gilltype_subsets[5]
+#					]
+#					, gill_femalenesses[5], (5,5)) for whichgillday in [1, 2, 3, 4, 5, 6, 7]
+#					] + [
+#					('_gill_aggtype', 40, [
+#						(['gill/gill_rawfile_%itypeall' % whichgillday for whichgillday in [1, 2, 3, 4, 5, 6, 7]], 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
+#						for asubsetlbl, subsetids in gilltype_subsets[5]
+#					]
+#					, gill_femalenesses[5], (5,5))
 					]:
 
 			print("plots underway for '%s'" % outlbl)
