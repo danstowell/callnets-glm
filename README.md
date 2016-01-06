@@ -51,7 +51,7 @@ How to Run the Code
          source runme.octave
          cd ..
 
-4. Invoke the main Python script, which will run GLM and cross-correlation analysis on real and simulated data, and make various plots. This will take a while (maybe half an hour?).
+4. Invoke the main Python script, which will run GLM and cross-correlation analysis on real and simulated data, and make various plots. This will take a while (maybe an hour?).
 
          cd callnets
          python callnets.py

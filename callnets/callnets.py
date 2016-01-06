@@ -308,8 +308,11 @@ def apply_glm_analysis(tstamps, k, runlabel='', workingfolder=None, regln=-1, re
 def synthesise_abc(maxdursecs=6000):
 	"Synthesises events dominated by an A->B->C influence pattern"
 
-	#maxdursecs /= 10
-	maxdursecs *= 16   # NB this gives me 2^16 data points max, which takes a while but shows a clear ABC convergence plot
+	if True:
+		print("NOTE: synthesise_abc() using a shortened data duration, in order to run quickly. For a complete data size test you may wish to increase the duration.")
+		maxdursecs /= 10
+	else:
+		maxdursecs *= 16   # NB this gives me 2^16 data points max, which takes a while but shows a clear ABC convergence plot
 
 	###########
 	# params
