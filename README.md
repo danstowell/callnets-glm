@@ -37,7 +37,7 @@ How to Run the Code
 
       zf4f: https://figshare.com/articles/Zebra_finch_group_calling_zf4f/1613791
 
-             TODO **********************************************************
+      gill et al: https://figshare.com/s/73cbdf96ab156a0f0a69
 
 2. Prepare the mex code (only needs doing once).
 
@@ -45,16 +45,21 @@ How to Run the Code
          octave --eval "initialize_mexcode"
          cd ../..
 
-3. Invoke the main Octave script, which will run the GLM analysis multiple times on subsets of the zf4f data. This will take a while (maybe half an hour?).
+3. Invoke the main Octave script, which will run the GLM analysis multiple times on subsets of the zf4f data.
+   THIS WILL TAKE A WHILE TO RUN! On my laptop, to analyse the zf4f takes about half an hour, then to analyse
+   the Gill data takes overnight.
 
          cd code_GLM
          source runme.octave
          cd ..
 
-4. Invoke the main Python script, which will run GLM and cross-correlation analysis on real and simulated data, and make various plots. This will take a while (maybe an hour?).
+4. Invoke the main Python script, which will run GLM and cross-correlation analysis on real and simulated data, and make various plots.
 
          cd callnets
          python callnets.py
+
+    (By default the synthetic ABC test only makes a tiny amount of data, since otherwise the test
+    takes hours. You can tweak the duration directly in the code, to create plots more like the paper.)
 
     You can then also run the auxiliary scripts which do some of the tests and figures in the paper:
 

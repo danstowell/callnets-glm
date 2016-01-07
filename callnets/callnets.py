@@ -676,20 +676,16 @@ def plot_aggregate_kernels_multipdf(outlbl, k, subplotscheme, plotvariant=None, 
 
 def filename_to_titlename(astr):
 	"Instead of plotting a raw filename in a page title, this transforms it to a prettier label which should match up with the paper text"
-	# gill/gill_rawfile_4typeall -> Trial II Day 7
+	# gill4type -> Trial II Day 7
 	# session2full -> Day 2
 	for pattern, retval in [
 		('session2full', 'Day 2'),
 		('session3full', 'Day 3'),
 
-		('gill/gill_rawfile_1(type|ind|clump)all', 'Trial II Day 1'),
-		('gill/gill_rawfile_2(type|ind|clump)all', 'Trial II Day 2'),
-		('gill/gill_rawfile_3(type|ind|clump)all', 'Trial II Day 3'),
-		('gill/gill_rawfile_4(type|ind|clump)all', 'Trial II Day 7'),
-		('gill/gill_rawfile_5(type|ind|clump)all', 'Trial II Day 11'),
-		('gill/gill_rawfile_6(type|ind|clump)all', 'Trial II Day 18'),
-		('gill/gill_rawfile_7(type|ind|clump)all', 'Trial II Day 20'),
-
+		('gill1(type|ind|clump)all', 'Trial II Day 1'),
+		('gill4(type|ind|clump)all', 'Trial II Day 7'),
+		('gill5(type|ind|clump)all', 'Trial II Day 11'),
+		('gill6(type|ind|clump)all', 'Trial II Day 18'),
 		]:
 		if re.match(pattern, astr):
 			return retval
@@ -869,24 +865,22 @@ if __name__ == '__main__':
 						('session3full_resim', 'sof', None, None, None, None),
 					], None, (1,2)),
 					] + [
-#					('_gill_ind', 8, [
-#						('gill/gill_rawfile_%iindall' % whichgillday, 'sof', gillpairinglist, None, None, None)
-#					for whichgillday in [1, 4, 5, 6]] # + [
-#						# this one should summarise them all onto one plot
-#						#(['gill/gill_rawfile_%iindall' % whichgillday for whichgillday in [1, 2, 3, 4, 5, 6, 7]], 'sof', gillpairinglist, None, None, None)]
-#					, gill_femalenesses[1], (4,1))
-#					] + [
-#					('_gill_%itype' % whichgillday, 40, [
-#						('gill/gill_rawfile_%itypeall' % whichgillday, 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
-#						for asubsetlbl, subsetids in gilltype_subsets[5]
-#					]
-#					, gill_femalenesses[5], (5,5)) for whichgillday in [1, 2, 3, 4, 5, 6, 7]
-#					] + [
-#					('_gill_aggtype', 40, [
-#						(['gill/gill_rawfile_%itypeall' % whichgillday for whichgillday in [1, 2, 3, 4, 5, 6, 7]], 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
-#						for asubsetlbl, subsetids in gilltype_subsets[5]
-#					]
-#					, gill_femalenesses[5], (5,5))
+					('_gill_ind', 8, [
+						('gill%iind' % whichgillday, 'sof', gillpairinglist, None, None, None)
+					for whichgillday in [1, 4, 5, 6]]
+					, gill_femalenesses[1], (4,1))
+					] + [
+					('_gill_%itype' % whichgillday, 40, [
+						('gill%itype' % whichgillday, 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
+						for asubsetlbl, subsetids in gilltype_subsets[5]
+					]
+					, gill_femalenesses[5], (5,5)) for whichgillday in [1, 4, 5, 6]
+					] + [
+					('_gill_aggtype', 40, [
+						(['gill%itype' % whichgillday for whichgillday in [1, 4, 5, 6]], 'sof', gilltypepairings[5], asubsetlbl, subsetids, gillmapbacktoind[5])
+						for asubsetlbl, subsetids in gilltype_subsets[5]
+					]
+					, gill_femalenesses[5], (5,5))
 					]:
 
 			print("plots underway for '%s'" % outlbl)
