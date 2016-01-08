@@ -530,7 +530,7 @@ def plot_aggregate_kernels(k, srcname, anlname, pairingslist, subsetlbl, subseti
 		srcnames = srcname
 
 	if plotvariant=='sexwise':
-		kerneltypes = ['mf', 'ff', 'fm', 'mm']
+		kerneltypes = ['mm', 'ff', 'fm', 'mf']
 	else:
 		kerneltypes = ['ss', 'sp', 'so']
 
@@ -539,19 +539,23 @@ def plot_aggregate_kernels(k, srcname, anlname, pairingslist, subsetlbl, subseti
 		'sp': np.array([0.6, 0.4, 0.0]),
 		'so': np.array([0, 0, 1.0]),
 		#
-		'ff': np.array([0.5, 0.1, 0.1]),
-		'mm': np.array([0.1, 0.1, 0.5]),
-		'fm': np.array([0.9, 0.4, 0.2]),
-		'mf': np.array([0.2, 0.6, 0.9]),
+		'ff': np.array([.98, .45, .059]),
+		'mm': np.array([.82, .043, .23]),
+		'fm': np.array([0.098, 0.088, 0.5]),
+		'mf': np.array([0.17, 0.72, 0.72]),
+	}
+	kerneltype_lmap = {
+		#'mf': '-.',
+		#'fm': '-.',
 	}
 	kerneltype_tmap = {
 		'ss': 'Self-self' ,
 		'sp': 'Self-partner',
 		'so': 'Self-other',
-		'ff': 'F->F',
-		'mm': 'M->M',
-		'fm': 'F->M',
-		'mf': 'M->F',
+		'ff': 'Self-self F',
+		'mm': 'Self-self M',
+		'fm': 'Self-partner F->M',
+		'mf': 'Self-partner M->F',
 	}
 
 	kernels = {kerneltype:[] for kerneltype in kerneltypes}
@@ -592,6 +596,7 @@ def plot_aggregate_kernels(k, srcname, anlname, pairingslist, subsetlbl, subseti
 			kernellist = np.array(kernels[kerneltype])
 			titlelbl   = kerneltype_tmap[kerneltype]
 			colourbase = kerneltype_cmap[kerneltype]
+			linestyle  = kerneltype_lmap.get(kerneltype, '-')
 
 			if len(kernellist)==0:
 				continue
@@ -604,7 +609,7 @@ def plot_aggregate_kernels(k, srcname, anlname, pairingslist, subsetlbl, subseti
 							label = "%s (N=%i)" % (titlelbl, len(kernellist))
 						else:
 							label = None
-						plt.plot(kernels_timeaxis, akernel, linestyle='-', color=colourbase,
+						plt.plot(kernels_timeaxis, akernel, linestyle=linestyle, color=colourbase,
 							hold=True, label=label, lw=0.05)
 			else:
 
@@ -613,10 +618,10 @@ def plot_aggregate_kernels(k, srcname, anlname, pairingslist, subsetlbl, subseti
 				k_lower  = np.percentile(kernellist,  2.5, axis=0)
 
 				if layer==0:
-					plt.fill_between(kernels_timeaxis, k_lower, k_upper, hold=True, color=0.5+colourbase*0.5, facecolor=0.5+colourbase*0.5, alpha=0.4)
+					plt.fill_between(kernels_timeaxis, k_lower, k_upper, hold=True, color=0.5+colourbase*0.5, facecolor=0.5+colourbase*0.5, alpha=0.3)
 					plt.axhline(0, linestyle=':', color=[0.1]*3)
 				elif layer==1:
-					plt.plot(kernels_timeaxis, k_median, linestyle='-', color=colourbase, hold=True,
+					plt.plot(kernels_timeaxis, k_median, linestyle=linestyle, color=colourbase, hold=True,
 							label="%s (N=%i)" % (titlelbl, len(kernellist)))
 
 	plt.xlabel("Time (s)")
