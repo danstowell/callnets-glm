@@ -80,6 +80,8 @@ The data format we use for call data is simple CSV (Comma Separated Values), wit
 
 We do not include a header row in the CSV. Have a look at one of the CSV files in the `data` folder to see examples of the format.
 
+Once the code has run, it generates output CSVs and plots. If you look in the `outcsv` folder you should see various files, including summary statistics. The file with name ending in `_kernels_discret.csv` holds the discretised kernel shapes, which you should be able to load and plot/analyse very easily.
+
 Copyright and Licence
 =====================
 The code in the "code_GLM" folder is mostly (c) 2010 Jonathan Pillow with additions (c) 2015 Dan Stowell,
