@@ -67,8 +67,8 @@ How to Run the Code for the Tests Used in the Paper
          python oddsratios.py  # calculates odds-ratios between softplus and exp models
          python analyseadj.py  # analyses the predictability of one segment from the previous
 
-How to Adapt the Code
-=====================
+How to Adapt the Code for Your Own Use
+======================================
 
 To run the code on your own data, have a look at the Octave/Matlab code in `code_GLM/testscripts/zf4f_glm_each.m`, which simply iterates through a set of datafiles calling `dofit_fromcsv_GLM_zf4f()` for each one. You can simply call `dofit_fromcsv_GLM_zf4f()` yourself, have a look at its parameters. If you specify a `csvoutdir` it outputs data files which are useful for inspecting the results (as is done by `callnets.py`).
 
