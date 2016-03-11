@@ -26,8 +26,8 @@ Tested on Ubuntu Linux 14.04.
 It should run on Linux and Mac fine. Untested on Windows.
 
 
-How to Run the Code
-===================
+How to Run the Code for the Tests Used in the Paper
+===================================================
 
 1. Download the data files: you can do this by running the following command:
 
@@ -72,6 +72,13 @@ How to Adapt the Code
 
 To run the code on your own data, have a look at the Octave/Matlab code in `code_GLM/testscripts/zf4f_glm_each.m`, which simply iterates through a set of datafiles calling `dofit_fromcsv_GLM_zf4f()` for each one. You can simply call `dofit_fromcsv_GLM_zf4f()` yourself, have a look at its parameters. If you specify a `csvoutdir` it outputs data files which are useful for inspecting the results (as is done by `callnets.py`).
 
+The data format we use for call data is simple CSV (Comma Separated Values), with three columns:
+
+1. start time, in seconds
+2. duration, in seconds (not used! you can just fix this as zero)
+3. which individual called, an integer from 1 to K
+
+We do not include a header row in the CSV. Have a look at one of the CSV files in the `data` folder to see examples of the format.
 
 Copyright and Licence
 =====================
