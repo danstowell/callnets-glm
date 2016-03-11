@@ -7,6 +7,7 @@ zf4fdir = '../data/zf4f'
 gilldir = '../data/gilletal_trial2'
 csvoutdir = 'outcsv'
 
+% Here we're listing lots of different configurations we want to run. We'll iterate over these configurations.
 setses = { ...
 struct('runname', 'session2fulla', 'indexmapper', [4,3,2,1], 'startsecs',  300, 'endsecs', 1200, 'resimuldur', 0, 'datapath', sprintf('%s/zcompiled_session2full', zf4fdir)), ...
 struct('runname', 'session2fullb', 'indexmapper', [4,3,2,1], 'startsecs', 1200, 'endsecs', 2100, 'resimuldur', 0, 'datapath', sprintf('%s/zcompiled_session2full', zf4fdir)), ...
@@ -38,14 +39,9 @@ nlfuns = {@softplus, @expfun};
 for whichnlf = 1:length(nlfuns)
 	nlfun = nlfuns{whichnlf};
 	nlname = func2str(nlfun)(1:3);
-	numcalls   = struct();
-	resultspos = struct();
-	resultsval = struct();
-	negloglis  = struct();
-	dcs        = struct();
 	for whichset=1:size(setses,2)
 		d = setses{whichset};
-		if whichnlf==1 || whichnlf==2
+		if nlname=='sof'
 			resimuldur = d.resimuldur;
 		else
 			resimuldur = 0;
@@ -55,9 +51,11 @@ for whichnlf = 1:length(nlfuns)
 
 		disp(sprintf('Fitting with nonlin %s on %s', func2str(nlfun), csvpath));
 
-		k = length(d.indexmapper);
+		k = length(d.indexmapper);  % k  is the number of individuals (or "channels") in the data
 		regln = -1; % NOTE default regularisation strength here
-		[numcalls.(d.runname), resultspos.(d.runname), resultsval.(d.runname), negloglis.(d.runname), dcs.(d.runname)] = dofit_fromcsv_GLM_zf4f(csvpath, runlabel, k, d.indexmapper, d.startsecs, d.endsecs, regln, 'outplot', csvoutdir, d.resimuldur, nlfun);
+
+		% let's go:
+		dofit_fromcsv_GLM_zf4f(csvpath, runlabel, k, d.indexmapper, d.startsecs, d.endsecs, regln, 'outplot', csvoutdir, d.resimuldur, nlfun);
 	end
 end;
 
