@@ -38,7 +38,8 @@ struct('runname', 'gill6type', 'indexmapper', 1:40, 'startsecs', 0, 'endsecs', 1
 nlfuns = {@softplus, @expfun};
 for whichnlf = 1:length(nlfuns)
 	nlfun = nlfuns{whichnlf};
-	nlname = func2str(nlfun)(1:3);
+	nlname = func2str(nlfun);
+	nlname = nlname(1:3);
 	for whichset=1:size(setses,2)
 		d = setses{whichset};
 		if nlname=='sof'
@@ -46,7 +47,7 @@ for whichnlf = 1:length(nlfuns)
 		else
 			resimuldur = 0;
 		end
-		runlabel = sprintf('%s%s', d.runname, func2str(nlfun)(1:3));
+		runlabel = sprintf('%s%s', d.runname, nlname);
 		csvpath = sprintf('%s.csv', d.datapath);
 
 		disp(sprintf('Fitting with nonlin %s on %s', func2str(nlfun), csvpath));
